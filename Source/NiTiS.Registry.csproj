@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="$(NBT_HOME)/csharp/v1.0/init.xml" />
+	<PropertyGroup>
+		<NBT_Name>NiTiS.Registry</NBT_Name>
+		<NBT_Singleframe>true</NBT_Singleframe>
+		<NBT_Version>0.0.0.2</NBT_Version>
+		<NBT_Summary>
+			Put description inside
+		</NBT_Summary>
+		<LangVersion>preview</LangVersion>
+		<EnablePreviewFeatures>true</EnablePreviewFeatures>
+
+		<NBT_Tabs>NiTiS;Registry6</NBT_Tabs>
+		<NBT_Frameworks>net6.0</NBT_Frameworks>
+		<NBT_Nullable>enable</NBT_Nullable>
+	</PropertyGroup>
+	<Import Project="$(NBT_HOME)/csharp/v1.0/post.xml" />
+</Project>
