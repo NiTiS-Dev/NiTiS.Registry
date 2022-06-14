@@ -10,6 +10,9 @@
 		<LangVersion>preview</LangVersion>
 		<EnablePreviewFeatures>true</EnablePreviewFeatures>
 
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/NiTiS-Dev/NiTiS.Registry</RepositoryUrl>
+		
 		<NBT_Tabs>NiTiS;Registry6</NBT_Tabs>
 		<NBT_Frameworks>net6.0</NBT_Frameworks>
 		<NBT_Nullable>enable</NBT_Nullable>
