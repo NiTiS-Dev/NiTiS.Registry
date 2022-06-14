@@ -1,0 +1,42 @@
+name: nuget build
+
+on:
+  push:
+    paths:
+    - '**.cs'
+    - '**.csproj'
+    
+  pull_request:
+  
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Download NiTiS Build Tools
+        run: |
+          cd ..
+          git clone "https://github.com/NiTiS-Dev/NiTiS-Dev.github.io.git" "NiTiS-Site"
+          cd NiTiS-Site/buildtools
+          echo "NBT_HOME=$(pwd)" >> $GITHUB_ENV
+          echo ---------------
+          echo $NBT_HOME
+          echo ---------------
+          
+          
+      - name: Build
+        run: |
+          echo $NBT_HOME
+          cd Source/
+          dotnet clean
+          dotnet restore
+          dotnet pack -c Release -o ../.build/
+          
+      - name: Nuget Upload
+        run: |
+          cd .build/
+          dotnet nuget push *.nupkg --skip-duplicate --source https://api.nuget.org/v3/index.json --api-key ${NUGET_TOKEN}
