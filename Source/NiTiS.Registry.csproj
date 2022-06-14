@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<NBT_Name>NiTiS.Registry</NBT_Name>
 		<NBT_Singleframe>true</NBT_Singleframe>
-		<NBT_Version>0.0.0.2</NBT_Version>
+		<NBT_Version>0.0.0.3</NBT_Version>
 		<NBT_Summary>
 			Put description inside
 		</NBT_Summary>

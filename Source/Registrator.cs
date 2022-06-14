@@ -2,9 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NiTiS.Registry;
 public class Registrator : IRegistrator, IRegistryType
@@ -41,7 +38,18 @@ public class Registrator : IRegistrator, IRegistryType
 		IRegistryType.InvokeRegistry(item);
 		values[id] = item;
 	}
-	public void Unreg(Identifier id) => throw new NotImplementedException();
+	public void Unreg(Identifier id)
+	{
+		if (values.TryGetValue(id, out IRegistryType registryType))
+		{
+			IRegistryType.InvokeUnregistry(registryType);
+			values.Remove(id);
+		}
+	}
+	public IEnumerable<IRegistryType> GetValues()
+		=> values.Values;
+	public IEnumerable<Identifier> GetKeys()
+		=> values.Keys;
 	void IRegistryType.Registry() { }
 	void IRegistryType.Unregistry() { }
 }
